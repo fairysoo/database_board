@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 목록</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>데이터베이스 과제 게시판 만들기</h1>
+
+<div class="top-bar">
+  <form action="/board" method="get">
+    <input type="text" name="search" placeholder="제목 검색" value="<%= search %>">
+    <button type="submit">검색</button>
+  </form>
+
+  <a class="btn" href="/board/write">글쓰기</a>
+</div>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>ID</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>조회수</th>
+    <th>작성일</th>
+  </tr>
+
+  <% rows.forEach(row => { %>
+    <tr>
+      <td><%= row.id %></td>
+      <td><a href="/board/view/<%= row.id %>"><%= row.title %></a></td>
+      <td><%= row.writer %></td>
+      <td><%= row.hit %></td>
+      <td><%= row.created_at.toLocaleString() %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<br>
+
+<div>
+  <% for (let i = 1; i <= Math.ceil(total / 10); i++) { %>
+    <a href="/board?page=<%= i %>&search=<%= search %>">[<%= i %>]</a>
+  <% } %>
+</div>
+
+</body>
+</html>

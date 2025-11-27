@@ -1,0 +1,18 @@
+<h1><%= row.title %></h1>
+
+<p><strong>작성자:</strong> <%= row.writer %></p>
+<p><strong>조회수:</strong> <%= row.hit %></p>
+<p><strong>작성일:</strong> <%= row.created_at.toLocaleString() %></p>
+
+<hr>
+
+<div class="pre"><%= row.content %></div>
+
+<hr>
+
+<a class="btn" href="/board">목록</a>
+<a class="btn" href="/board/edit/<%= row.id %>">수정</a>
+
+<form action="/board/delete/<%= row.id %>" method="post" style="display:inline;">
+  <button type="submit">삭제</button>
+</form>

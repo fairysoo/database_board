@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>글쓰기</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>글쓰기</h1>
+
+<form action="/board/write" method="post">
+
+  <p>
+    <label>제목</label><br>
+    <input type="text" name="title" required>
+  </p>
+
+  <p>
+    <label>작성자</label><br>
+    <input type="text" name="writer" required>
+  </p>
+
+  <p>
+    <label>내용</label><br>
+    <textarea name="content" rows="10" required></textarea>
+  </p>
+
+  <button type="submit">등록</button>
+</form>
+
+<br>
+<a href="/board">목록</a>
+
+</body>
+</html>
